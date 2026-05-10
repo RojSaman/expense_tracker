@@ -1,0 +1,215 @@
+/* ══════════════════════════════════════════
+   Yevzo – Shared Styles
+   Matches the Expense Ledger design language
+   ══════════════════════════════════════════ */
+
+:root {
+    --ink:           #0f0e0c;
+    --ink-2:         #5a564f;
+    --ink-3:         #9c9890;
+    --paper:         #faf8f4;
+    --surface:       #ffffff;
+    --border:        #e8e4dc;
+    --accent:        #c8873a;
+    --accent-light:  #fdf1e4;
+    --accent-border: #f0d8b8;
+    --danger:        #d94f3d;
+    --danger-light:  #fdf1f0;
+    --success:       #3a9c6e;
+    --blue:          #4f7fe8;
+    --blue-light:    #edf2fd;
+    --radius:        10px;
+    --shadow:        0 2px 12px rgba(15,14,12,.07);
+    --shadow-lg:     0 8px 32px rgba(15,14,12,.12);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+/* ── Auth layout ── */
+body.auth-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.auth-shell {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.auth-logo h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.02em;
+}
+.auth-logo h1 em { font-style: italic; color: var(--accent); }
+.auth-logo p {
+    font-size: .8rem;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-top: .35rem;
+}
+
+/* ── Card ── */
+.auth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2rem 2rem 1.75rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp .4s ease both;
+}
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #e8a95a);
+}
+.auth-card h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: .3rem;
+}
+.auth-card .subtitle {
+    font-size: .85rem;
+    color: var(--ink-3);
+    margin-bottom: 1.6rem;
+}
+
+/* ── Form elements ── */
+.field { margin-bottom: 1.1rem; }
+
+.field label {
+    display: block;
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--ink-2);
+    margin-bottom: .42rem;
+}
+
+.field input {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .925rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: .68rem .9rem;
+    width: 100%;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(200,135,58,.14);
+    background: #fff;
+}
+
+/* ── Buttons ── */
+.btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    padding: .75rem 1.5rem;
+    cursor: pointer;
+    transition: all .18s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.btn-full { width: 100%; }
+
+.btn-primary {
+    background: var(--ink);
+    color: #fff;
+    margin-top: .5rem;
+}
+.btn-primary:hover {
+    background: #2a2720;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(15,14,12,.2);
+}
+
+/* ── Alert ── */
+.alert {
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    font-size: .85rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+}
+.alert-error {
+    background: var(--danger-light);
+    color: var(--danger);
+    border: 1px solid #f5ccc9;
+}
+.alert-success {
+    background: #ecfdf5;
+    color: var(--success);
+    border: 1px solid #a7f3d0;
+}
+
+/* ── Footer link ── */
+.auth-footer {
+    text-align: center;
+    margin-top: 1.4rem;
+    font-size: .84rem;
+    color: var(--ink-3);
+}
+.auth-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+.auth-footer a:hover { text-decoration: underline; }
+
+/* ── Divider ── */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: 1.25rem 0;
+    color: var(--ink-3);
+    font-size: .78rem;
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* ── Animation ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
